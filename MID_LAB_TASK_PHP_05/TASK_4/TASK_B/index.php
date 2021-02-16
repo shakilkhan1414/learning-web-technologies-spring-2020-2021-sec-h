@@ -13,15 +13,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Name</title>
+	<title>Gender</title>
 </head>
 <body>
 
 	<form method="POST">
 		<fieldset style="width: 300px;">
-			<legend>Name</legend>
-			Name: <input type="text" name="myname" value="">  <br>
-            <br>
+			<legend>Gender</legend>
+			Gender: <input type="radio" name="myname" value="Male"> Male
+			<input type="radio" name="myname" value="Female">Female
+			<input type="radio" name="myname" value="others">others
             <hr>
 				<input type="submit" name="submit" value="Submit">
 		</fieldset>
