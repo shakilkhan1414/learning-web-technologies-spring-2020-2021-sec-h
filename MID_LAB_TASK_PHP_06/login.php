@@ -5,19 +5,19 @@
         $password= $_POST['password'];
 
         if (preg_match("/^[A-Za-z][A-Za-z0-9.]*(?:_[A-Za-z0-9]+)*$/", $uname)|| strpos($uname, "-")!== false||strpos($uname, "_")!== false||strpos($uname, " ")!== false && strlen($uname)>=2){
-            
+            if(strlen($password)>=8 && strpos($password, "@")!== false||strpos($password, "#")!== false||strpos($password, "$")!== false||strpos($password, "%")!== false)
+            {
+                echo "Login Successful ...";
+            }
+            else{
+                echo "Invalid password ...";
+            }
         }
         else{
             echo "Invalid username ...";
         }
 
-        if(strlen($password)>=8 && strpos($password, "@")!== false||strpos($password, "#")!== false||strpos($password, "$")!== false||strpos($password, "%")!== false)
-        {
-            echo "Login Successful ...";
-        }
-        else{
-            echo "Invalid password ...";
-        }
+
 
     }
 
