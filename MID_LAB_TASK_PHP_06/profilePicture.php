@@ -9,12 +9,15 @@
             echo "Sorry, only JPG, JPEG & PNG files are allowed.";
 
         }
-        if ($_FILES["picture"]["size"] > 4000000) {
-            echo "Sorry, your file is too large.";
-          }
-          else{
-              echo "Successful ...";
-          }
+        else{
+            if ($_FILES["picture"]["size"] > 4000000) {
+                echo "Sorry, your file is too large.";
+              }
+              else{
+                  echo "Successful ...";
+              }
+        }
+
 
     }
 
