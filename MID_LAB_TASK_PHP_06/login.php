@@ -17,14 +17,6 @@
             echo "Invalid username ...";
         }
         
-       
-
-        if (preg_match("/^[A-Za-z][A-Za-z0-9.]*(?:_[A-Za-z0-9]+)*$/", $uname)|| strpos($uname, "-")!== false||strpos($uname, "_")!== false||strpos($uname, " ")!== false && strlen($uname)>=2){
-            
-        }
-        else{
-            
-        }
 
     }
 
