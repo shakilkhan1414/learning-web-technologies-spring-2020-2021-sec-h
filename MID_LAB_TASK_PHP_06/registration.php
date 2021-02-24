@@ -9,29 +9,32 @@
         $gender= $_POST['gender'];
         $dob= $_POST['dob'];
 
-        if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            if (preg_match("/^[A-Za-z][A-Za-z0-9.]*(?:_[A-Za-z0-9]+)*$/", $uname)|| strpos($uname, "-")!== false||strpos($uname, "_")!== false||strpos($uname, " ")!== false && strlen($uname)>=2){
-                if(strlen($pass)>=8 && strpos($pass, "@")!== false||strpos($pass, "#")!== false||strpos($pass, "$")!== false||strpos($pass, "%")!== false)
-                {
-                    if($pass==$cpass){
-                        echo "Registration successful !";
+        if(ctype_alnum($name)||strpos($name, " ")!== false){
+            if (strpos($email, "@")!== false && strpos($email, ".")!== false) {
+                if (ctype_alnum($uname)|| strpos($uname, "-")!== false||strpos($uname, "_")!== false||strpos($uname, " ")!== false && strlen($uname)>=2){
+                    if(strlen($pass)>=8 && strpos($pass, "@")!== false||strpos($pass, "#")!== false||strpos($pass, "$")!== false||strpos($pass, "%")!== false)
+                    {
+                        if($pass==$cpass){
+                            echo "Registration successful !";
+                        }
+                        else{
+                            echo "Password must match ...";
+                        }
                     }
                     else{
-                        echo "Password must match ...";
+                        echo "Invalid password ...";
                     }
                 }
                 else{
-                    echo "Invalid password ...";
+                    echo "Invalid username ...";
                 }
+            }else {
+                echo("$email is not a valid email address");
             }
-            else{
-                echo "Invalid username ...";
-            }
-        }else {
-            echo("$email is not a valid email address");
         }
-
-        
+        else{
+            echo "Invalid name ...";
+        }
 
 
     }
