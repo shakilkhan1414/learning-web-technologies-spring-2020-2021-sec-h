@@ -8,6 +8,7 @@ session_start();
         
         if($uname==$user['username'] || $password==$user['password'])
         {
+            $_SESSION['flag']=true;
             header("location:dashboard.php");
         }
         else{

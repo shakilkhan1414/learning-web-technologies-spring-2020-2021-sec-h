@@ -49,7 +49,7 @@
                         <td style="float: right; margin-top:30px;">
                         <a style="padding: 5px;" href="#">Loged in as <?php echo $user['name']; ?> </a>
  
-                        <a style="padding: 5px;" href="#">Logout</a>
+                        <a style="padding: 5px;" href="logoutProcess.php">Logout</a>
                         </td>
                     </tr>
                 </table>
@@ -66,7 +66,7 @@
                     <li><a href="editProfile.php">Edit Profile</a></li>
                     <li><a href="changePicture.php">Change Profile Picture</a></li>
                     <li><a href="changePassword.php">Change Password</a></li>
-                    <li><a href="">Logout</a></li>
+                    <li><a href="logoutProcess.php">Logout</a></li>
                 </ul>
             </td>
             <td>
