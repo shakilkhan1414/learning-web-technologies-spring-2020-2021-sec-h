@@ -6,7 +6,7 @@ session_start();
         $password=$_POST['password'];
         $user = $_SESSION['current_user'];
         
-        if($uname==$user['username'] || $password==$user['password'])
+        if($uname==$user['username'] && $password==$user['password'])
         {
             $_SESSION['flag']=true;
             header("location:dashboard.php");
