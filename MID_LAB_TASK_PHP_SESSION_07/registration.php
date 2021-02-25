@@ -45,7 +45,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Home</title>
+    <title>Registration</title>
 </head>
 <body>
     <table border="1px" style="border-collapse: collapse; width:70%; margin:auto;">
