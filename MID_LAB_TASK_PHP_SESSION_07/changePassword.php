@@ -1,3 +1,36 @@
+<?php 
+    session_start();
+    $user = $_SESSION['current_user'];
+
+    if(isset($_POST['submit']))
+	{
+        $cpass= $_POST['cpass'];
+        $npass= $_POST['npass'];
+        $rpass= $_POST['rpass'];
+
+        if($cpass==$user['password']){
+            if(strlen($npass)>=8 && strpos($npass, "@")!== false||strpos($npass, "#")!== false||strpos($npass, "$")!== false||strpos($npass, "%")!== false){
+                if($npass==$rpass)
+                {
+                    $_SESSION['current_user']['password']=$npass;
+                    header("location: dashboard.php");
+                }
+                else{
+                    echo "Password must match";
+                }
+            }
+            else{
+                echo "Invalid Password Format ...";
+            }
+        }
+        else{
+            echo "Invalid Current Password";
+        }
+
+
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,7 +49,7 @@
                     <tr>
                         <td><img src="logo.png" alt="Logo"></td>
                         <td style="float: right; margin-top:30px;">
-                        <a style="padding: 5px;" href="#">Loged in as BOB </a>
+                        <a style="padding: 5px;" href="#">Loged in as <?php echo $user['name']; ?> </a>
  
                         <a style="padding: 5px;" href="#">Logout</a>
                         </td>
@@ -30,11 +63,11 @@
                 <h3>Account</h3>
                 <hr>
                 <ul>
-                    <li><a href="">Dashboard</a></li>
-                    <li><a href="">View Profile</a></li>
-                    <li><a href="">Edit Profile</a></li>
-                    <li><a href="">Change Profile Picture</a></li>
-                    <li><a href="">Change Profile Picture</a></li>
+                    <li><a href="dashboard.php">Dashboard</a></li>
+                    <li><a href="viewProfile.php">View Profile</a></li>
+                    <li><a href="editProfile.php">Edit Profile</a></li>
+                    <li><a href="changePicture.php">Change Profile Picture</a></li>
+                    <li><a href="changePassword.php">Change Password</a></li>
                     <li><a href="">Logout</a></li>
                 </ul>
             </td>
@@ -45,21 +78,21 @@
             <table>
                 <tr>
                     <td><label>Current Password</label></td>
-                    <td><input type="text" name="uname" id="" required></td>
+                    <td><input type="password" name="cpass" id="" required></td>
                 </tr>
                 <tr>
                     <td colspan="2"><br></td>
                 </tr>
                 <tr>
                     <td><label>New Password</label></td>
-                    <td><input type="password" name="password" id="" required></td>
+                    <td><input type="password" name="npass" id="" required></td>
                 </tr>
                 <tr>
                     <td colspan="2"><br></td>
                 </tr>
                 <tr>
                     <td><label>Retype New Password</label></td>
-                    <td><input type="password" name="password" id="" required></td>
+                    <td><input type="password" name="rpass" id="" required></td>
                 </tr>
                 <tr>
                     <td colspan="2"><hr></td>

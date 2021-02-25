@@ -1,3 +1,8 @@
+<?php 
+    session_start();
+    $user = $_SESSION['current_user'];
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,13 +21,11 @@
                     <tr>
                         <td><img src="logo.png" alt="Logo"></td>
                         <td style="float: right; margin-top:30px;">
-                        <a style="padding: 5px;" href="#">Loged in as BOB </a>
- 
+                        <a style="padding: 5px;" href="#">Loged in as <?php echo $user['name']; ?> </a>
                         <a style="padding: 5px;" href="#">Logout</a>
                         </td>
                     </tr>
                 </table>
-
             </td>
         </tr>
         <tr style="height: 200px;">
@@ -30,16 +33,18 @@
                 <h3>Account</h3>
                 <hr>
                 <ul>
-                    <li><a href="">Dashboard</a></li>
-                    <li><a href="">View Profile</a></li>
-                    <li><a href="">Edit Profile</a></li>
-                    <li><a href="">Change Profile Picture</a></li>
-                    <li><a href="">Change Profile Picture</a></li>
+                    <li><a href="dashboard.php">Dashboard</a></li>
+                    <li><a href="viewProfile.php">View Profile</a></li>
+                    <li><a href="editProfile.php">Edit Profile</a></li>
+                    <li><a href="changePicture.php">Change Profile Picture</a></li>
+                    <li><a href="changePassword.php">Change Password</a></li>
                     <li><a href="">Logout</a></li>
                 </ul>
             </td>
             <td>
-                <h2>Welcome Bob</h2>
+                <h2>Welcome <?php 
+                    echo $user['name'];
+                ?></h2>
             </td>
         </tr>
         <tr>

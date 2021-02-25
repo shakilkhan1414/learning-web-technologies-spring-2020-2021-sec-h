@@ -1,4 +1,6 @@
 <?php 
+    session_start();
+
     if(isset($_POST['submit']))
 	{
         $name= $_POST['name'];
@@ -15,7 +17,18 @@
                     if(strlen($pass)>=8 && strpos($pass, "@")!== false||strpos($pass, "#")!== false||strpos($pass, "$")!== false||strpos($pass, "%")!== false)
                     {
                         if($pass==$cpass){
-                            echo "Registration successful !";
+                            $user=[
+                                'name'=>$name,
+                                'email'=>$email,
+                                'username'=>$uname,
+                                'password'=>$pass,
+                                'gender'=>$gender,
+                                'dob'=>$dob
+                            ];
+                            $_SESSION['current_user']=$user;
+
+                            header("location:login.php");
+
                         }
                         else{
                             echo "Password must match ...";
@@ -55,9 +68,9 @@
                     <tr>
                         <td><img src="logo.png" alt="Logo"></td>
                         <td style="float: right; margin-top:30px;">
-                        <a style="padding: 5px;" href="#">Home</a>
-                        <a style="padding: 5px;" href="#">Login</a>
-                        <a style="padding: 5px;" href="#">Registration</a>
+                        <a style="padding: 5px;" href="index.php">Home</a>
+                        <a style="padding: 5px;" href="login.php">Login</a>
+                        <a style="padding: 5px;" href="registration.php">Registration</a>
                         </td>
                     </tr>
                 </table>
@@ -110,11 +123,11 @@
                 <td colspan="2">
                     <fieldset>
                         <legend>Gender</legend>
-                        <input type="radio" name="gender" id="" checked>
+                        <input type="radio" name="gender" value="Male" id="" checked>
                         <label for="">Male</label>
-                        <input type="radio" name="gender" id="">
+                        <input type="radio" name="gender" value="Female" id="">
                         <label for="">Female</label>
-                        <input type="radio" name="gender" id="">
+                        <input type="radio" name="gender" value="Others" id="">
                         <label for="">Others</label>
                     </fieldset>
                 </td>

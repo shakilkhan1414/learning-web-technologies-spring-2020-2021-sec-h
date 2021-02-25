@@ -1,20 +1,17 @@
 <?php 
+session_start();
     if(isset($_POST['submit']))
 	{
         $uname=$_POST['uname'];
         $password=$_POST['password'];
-        $array_uname=str_split($uname);
-
-        if (ctype_alnum($uname)||strpos($uname, "-")!== false||strpos($uname, "_")!== false||strpos($uname, " ")!== false && strlen($uname)>=2) {
-            if(strlen($password)>=8 && strpos($password, "@")!== false||strpos($password, "#")!== false||strpos($password, "$")!== false||strpos($password, "%")!== false)
-            {
-                echo "Login Successful ...";
-            }
-            else{
-                echo "Invalid password ...";
-            }
-        } else {
-            echo "Invalid username ...";
+        $user = $_SESSION['current_user'];
+        
+        if($uname==$user['username'] || $password==$user['password'])
+        {
+            header("location:dashboard.php");
+        }
+        else{
+            echo "Invlid username or password ...";
         }
 
     }
@@ -35,9 +32,9 @@
                     <tr>
                         <td><img src="logo.png" alt="Logo"></td>
                         <td style="float: right; margin-top:30px;">
-                        <a style="padding: 5px;" href="#">Home</a>
-                        <a style="padding: 5px;" href="#">Login</a>
-                        <a style="padding: 5px;" href="#">Registration</a>
+                        <a style="padding: 5px;" href="index.php">Home</a>
+                        <a style="padding: 5px;" href="login.php">Login</a>
+                        <a style="padding: 5px;" href="registration.php">Registration</a>
                         </td>
                     </tr>
                 </table>
@@ -76,7 +73,7 @@
                 </tr>
                 <tr>
                     <td><input type="submit" name="submit" value="Submit"></td>
-                    <td><a href="#">Forgot Password</a></td>
+                    <td><a href="forgotPassword.php">Forgot Password</a></td>
                 </tr>
             
             </table>

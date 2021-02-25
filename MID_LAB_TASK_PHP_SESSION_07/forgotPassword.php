@@ -1,3 +1,18 @@
+<?php 
+    session_start();
+    $user = $_SESSION['current_user'];
+
+    if(isset($_POST['submit'])){
+        if($_POST['email']==$user['email'])
+        {
+            echo "Your Password is: ".$user['password'];
+        }
+        else{
+            echo "Invalid Email ...";
+        }
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,9 +26,9 @@
                     <tr>
                         <td><img src="logo.png" alt="Logo"></td>
                         <td style="float: right; margin-top:30px;">
-                        <a style="padding: 5px;" href="#">Home</a>
-                        <a style="padding: 5px;" href="#">Login</a>
-                        <a style="padding: 5px;" href="#">Registration</a>
+                        <a style="padding: 5px;" href="index.php">Home</a>
+                        <a style="padding: 5px;" href="login.php">Login</a>
+                        <a style="padding: 5px;" href="registration.php">Registration</a>
                         </td>
                     </tr>
                 </table>
@@ -28,7 +43,7 @@
             <table>
                 <tr>
                     <td><label>Enter Email:</label></td>
-                    <td><input type="text" name="email" id="" required></td>
+                    <td><input type="email" name="email" id="" required></td>
                 </tr>
 
                 <tr>

@@ -11,9 +11,9 @@
                     <tr>
                         <td><img src="logo.png" alt="Logo"></td>
                         <td style="float: right; margin-top:30px;">
-                        <a style="padding: 5px;" href="#">Home</a>
-                        <a style="padding: 5px;" href="#">Login</a>
-                        <a style="padding: 5px;" href="#">Registration</a>
+                        <a style="padding: 5px;" href="index.php">Home</a>
+                        <a style="padding: 5px;" href="login.php">Login</a>
+                        <a style="padding: 5px;" href="registration.php">Registration</a>
                         </td>
                     </tr>
                 </table>
