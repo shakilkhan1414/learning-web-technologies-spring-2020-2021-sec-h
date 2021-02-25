@@ -1,6 +1,32 @@
 <?php 
     session_start();
     $user = $_SESSION['current_user'];
+
+    if(isset($_POST['submit']))
+	{
+        $name= $_POST['name'];
+        $email= $_POST['email'];
+        $gender= $_POST['gender'];
+        $dob= $_POST['dob'];
+
+        if(ctype_alnum($name)||strpos($name, " ")!== false){
+            if (strpos($email, "@")!== false && strpos($email, ".")!== false) {
+                $_SESSION['current_user']['name']=$name;
+                $_SESSION['current_user']['email']=$email;
+                $_SESSION['current_user']['gender']=$gender;
+                $_SESSION['current_user']['dob']=$dob;
+                header("location:viewProfile.php");
+ 
+            }else {
+                echo("$email is not a valid email address");
+            }
+        }
+        else{ 
+            echo "Invalid name ...";
+        }
+
+
+    }
 ?>
 
 <!DOCTYPE html>
@@ -50,14 +76,14 @@
             <table>
                 <tr>
                     <td><label>Name</label></td>
-                    <td><input type="text" name="name" id="" required></td>
+                    <td><input type="text" name="name" value="<?php echo $user['name']; ?>"></td>
                 </tr>
                 <tr>
                     <td colspan="2"><hr></td>
                 </tr>
                 <tr>
-                    <td><label>Password</label></td>
-                    <td><input type="email" name="email" id="" required></td>
+                    <td><label>Email</label></td>
+                    <td><input type="email" name="email" value="<?php echo $user['email']; ?>"></td>
                 </tr>
                 <tr>
                     <td colspan="2"><hr></td>
@@ -65,11 +91,29 @@
                 <tr>
                     <td><label>Gender</label></td>
                     <td>
-                        <input type="radio" name="gender" id="" checked>
+                        <input type="radio" name="gender" <?php 
+                            $gender=$user['gender'];
+                            if($gender=="Male")
+                            {
+                                echo "checked";
+                            }
+                        ?>>
                         <label for="">Male</label>
-                        <input type="radio" name="gender" id="">
+                        <input type="radio" name="gender" <?php 
+                            $gender=$user['gender'];
+                            if($gender=="Female")
+                            {
+                                echo "checked";
+                            }
+                        ?>>
                         <label for="">Female</label>
-                        <input type="radio" name="gender" id="">
+                        <input type="radio" name="gender" <?php 
+                            $gender=$user['gender'];
+                            if($gender=="Others")
+                            {
+                                echo "checked";
+                            }
+                        ?>>
                         <label for="">Others</label></td>
                 </tr>
                 <tr>
@@ -78,7 +122,7 @@
                 <tr>
                     <td><label>Date of Birth</label></td>
                     <td>
-                        <input type="date" name="" id="">
+                        <input type="date" name="dob" value="<?php echo $user['dob']; ?>">
                         <label for="">(dd/mm/yyyy)</label>
                     </td>
                 </tr>
