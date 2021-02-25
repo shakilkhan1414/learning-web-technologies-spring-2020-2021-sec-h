@@ -52,35 +52,43 @@
                 <td style="width: 80%;">
                     <table style="width: 70%;">
                     <tr>
-                        <td><label for="">Name: </label></td>
-                        <td><label for="">Bob</label></td>
+                        <td><label>Name: </label></td>
+                        <td><label><?php 
+                            echo $user['name'];
+                        ?></label></td>
                     </tr>
                     <tr>
                         <td colspan="2"><hr></td>
                     </tr>
                     <tr>
-                        <td><label for="">Email: </label></td>
-                        <td><label for="">Bob</label></td>
+                        <td><label>Email: </label></td>
+                        <td><label><?php 
+                            echo $user['email'];
+                        ?></label></td>
                     </tr>
                     <tr>
                         <td colspan="2"><hr></td>
                     </tr>
                     <tr>
-                        <td><label for="">Gender: </label></td>
-                        <td><label for="">Bob</label></td>
+                        <td><label>Gender: </label></td>
+                        <td><label><?php 
+                            echo $user['gender'];
+                        ?></label></td>
                     </tr>
                     <tr>
                         <td colspan="2"><hr></td>
                     </tr>
                     <tr>
-                        <td><label for="">DOB: </label></td>
-                        <td><label for="">Bob</label></td>
+                        <td><label>DOB: </label></td>
+                        <td><label><?php 
+                            echo $user['dob'];
+                        ?></label></td>
                     </tr>
                     </table>
                 </td>
                 <td>
                     <img style="height: 150px;" src="user.png" alt="">
-                    <a style="margin-left: 50px;" href="">Change</a>
+                    <a style="margin-left: 50px;" href="changePicture.php">Change</a>
                 </td>
                 </tr>
                 <tr>
@@ -88,7 +96,7 @@
                 </tr>
                 <tr>
                 <td colspan="2">
-                    <a href="">Edit Profile</a>
+                    <a href="editProfile.php">Edit Profile</a>
                 </td>
                 </tr>
 

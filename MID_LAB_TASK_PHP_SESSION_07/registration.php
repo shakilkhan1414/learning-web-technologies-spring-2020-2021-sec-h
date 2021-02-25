@@ -45,7 +45,7 @@
                 echo("$email is not a valid email address");
             }
         }
-        else{
+        else{ 
             echo "Invalid name ...";
         }
 
