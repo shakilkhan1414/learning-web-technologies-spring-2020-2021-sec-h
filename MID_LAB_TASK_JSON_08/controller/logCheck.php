@@ -9,15 +9,24 @@
 		if($username == "" || $password == ""){
 			echo "null submission...";
 		}else{
-			$user = $_SESSION['current_user'];
+			$myfile = fopen('list.json', 'r');
+			$data = fread($myfile, filesize('list.json'));
 
-			if($username == $user['username'] && $password == $user['password']){
-				$_SESSION['flag'] = true;
-				header('location: ../view/home.php');
-			}else{
-				echo "invalid user";
+			$user = json_decode($data, true);
+			
+			for ($i=0; $i < sizeof($user); $i++) { 
+
+				if($username==$user[$i]['username']){
+					if($password==$user[$i]['password']){
+						$_SESSION['flag'] = true;
+						$_SESSION['username']=$user[$i]['username'];
+						header('location: ../view/home.php');					
+					}
+				}
+				
+				}
+				echo "Invalid username or password ...";
 			}
-		}
 
-	}
+		}
 ?>

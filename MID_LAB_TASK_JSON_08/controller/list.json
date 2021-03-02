@@ -1,0 +1,17 @@
+[
+	{
+		"username" :"alamin",
+		"password": "alamin123",
+		"email": "alamin@aiub.edu"
+	},
+	{
+		"username" : "shakil",
+		"password": "shakil123",
+		"email": "shakil@aiub.edu"
+	},
+	{
+		"username" : "samin",
+		"password": "samin123",
+		"email": "samin@aiub.edu"
+	}
+]
