@@ -2,8 +2,11 @@
 	$title= "Edit Page";
 	include('header.php');
 
-	//echo $_GET['id'];
-	//echo $_GET['email'];
+	$myfile = fopen('../controller/list.json', 'r');
+	$data = fread($myfile, filesize('../controller/list.json'));
+
+	$user = json_decode($data, true);
+
 ?>
 
 
@@ -23,16 +26,34 @@
 				<table>
 					<tr>
 						<td>Username</td>
-						<td><input type="text" name="username" value="alamin"> </td>
+						<td><input type="text" name="username" value="<?php
+							for ($i=0; $i < sizeof($user); $i++) { 
+								if($user[$i]['id']==$_GET['id']){
+									echo $user[$i]['username'];													
+									}
+								}							
+						?>"> </td>
 					</tr>
 					<tr>
 						<td>Password</td>
-						<td><input type="password" name="password" value="123"> </td>
+						<td><input type="text" name="password" value="<?php 
+							for ($i=0; $i < sizeof($user); $i++) { 
+								if($user[$i]['id']==$_GET['id']){
+									echo $user[$i]['password'];													
+									}
+								}
+						?>"> </td>
 					</tr>
 				
 					<tr>
 						<td>Email</td>
-						<td><input type="email" name="email" value="alamin@aiub.edu"> </td>
+						<td><input type="email" name="email" value="<?php
+							for ($i=0; $i < sizeof($user); $i++) { 
+								if($user[$i]['id']==$_GET['id']){
+									echo $user[$i]['email'];												
+									}
+								}							
+						?>"> </td>
 					</tr>
 					<tr>
 						<td></td>
