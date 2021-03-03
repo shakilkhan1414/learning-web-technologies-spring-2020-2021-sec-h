@@ -14,17 +14,37 @@
 
 			if($password == $repass){
 
-				$user = [	
-							'username'=>$username, 
-							'password'=>$password, 
-							'email'=> $email
-						];
+				if(file_exists("list.json"))
+				{
+					$data=file_get_contents("list.json");
+					$array_data=json_decode($data,true);
 
-				//$_SESSION['username'] = $username;
-				//$_SESSION['password'] = $password;
-				$_SESSION['current_user'] = $user;
+					$user = [	
+						'id'=>rand(0,1000),
+						'username'=>$username, 
+						'password'=>$password, 
+						'email'=> $email
+					];
 
-				header('location: ../view/login.html');
+					$array_data[]=$user;
+					$final_data=json_encode($array_data);
+					if(file_put_contents("list.json",$final_data))
+					{
+						header('location: ../view/login.html');
+					}
+					else{
+						echo "Something went wrong,try again ...";
+					}
+
+				}
+				else{
+					echo "Storage file doesn't exist ...";
+				}
+
+				
+
+				
+
 			}else{
 				echo "password & confirm password mismatch..";
 			}
