@@ -1,6 +1,8 @@
 <?php
 	$title= "Edit Page";
 	include('header.php');
+	$_SESSION['id']=$_GET['id'];
+
 
 	$myfile = fopen('../controller/list.json', 'r');
 	$data = fread($myfile, filesize('../controller/list.json'));
@@ -20,7 +22,7 @@
 	</div>
 
 	<div id="main_content">
-		<form method="post" action="">
+		<form method="post" action="editProcess.php">
 			<fieldset>
 				<legend>Create New</legend>
 				<table>

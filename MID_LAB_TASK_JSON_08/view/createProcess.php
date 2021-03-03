@@ -14,9 +14,9 @@
 
 			if($password == $repass){
 
-				if(file_exists("list.json"))
+				if(file_exists("../controller/list.json"))
 				{
-					$data=file_get_contents("list.json");
+					$data=file_get_contents("../controller/list.json");
 					$array_data=json_decode($data,true);
 
 					$user = [	
@@ -28,9 +28,9 @@
 
 					$array_data[]=$user;
 					$final_data=json_encode($array_data);
-					if(file_put_contents("list.json",$final_data))
+					if(file_put_contents("../controller/list.json",$final_data))
 					{
-						header('location: ../view/login.html');
+						header('location: user_list.php');
 					}
 					else{
 						echo "Something went wrong,try again ...";

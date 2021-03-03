@@ -14,7 +14,7 @@
 	</div>
 
 	<div id="main_content">
-		<form method="post" action="../controller/regCheck.php">
+		<form method="post" action="createProcess.php">
 			<fieldset>
 				<legend>Create New</legend>
 				<table>

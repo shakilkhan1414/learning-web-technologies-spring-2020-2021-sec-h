@@ -8,8 +8,8 @@
             if($array_data[$i]['id']==$_GET['id'])
             {
                 unset($array_data[$i]);
-
-                $final_data=json_encode($array_data);
+                $a=array_values($array_data);
+                $final_data=json_encode($a);
 					if(file_put_contents("../controller/list.json",$final_data))
 					{
 						header('location: user_list.php');
@@ -17,7 +17,7 @@
 					else{
 						echo "Something went wrong,try again ...";
 					}
-                    
+
             }
         }
         
