@@ -20,6 +20,7 @@
 				<td>Username</td>
 				<td>Email</td>
 				<td>Password</td>
+				<td>Type</td>
 				<td>Action</td>
 			</tr>
 			<?php 
@@ -29,11 +30,13 @@
 					$username=$users[$i]['username'];
 					$email=$users[$i]['email'];
 					$password=$users[$i]['password'];
+					$type=$users[$i]['user_type'];
 					echo "<tr>
 							<td>$id</td>
 							<td>$username</td>
 							<td>$email</td>
 							<td>$password</td>
+							<td>$type</td>
 							<td>
 								<a href='edit.php?id=$id'>EDIT</a> |
 								<a href='../controller/delete.php?id=$id'>DELETE</a> 

@@ -56,7 +56,7 @@
 	function updateUser($user){
 
 		$conn = getConnection();
-		$sql = "update user set username='{$user['username']}', password='{$user['password']}', email='{$user['email']}', type={$user['type']} ";
+		$sql = "update user set username='{$user['username']}', password='{$user['password']}', email='{$user['email']}' where id='{$user['id']}'";
 		
 		if(mysqli_query($conn, $sql)){
 			return true;
