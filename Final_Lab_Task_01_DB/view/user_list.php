@@ -1,5 +1,6 @@
 <?php
 	$title= "User list Page";
+	require_once "../db/connection.php";
 	include('header.php');
 ?>
 
@@ -16,19 +17,27 @@
 		<table border="1" style="border-collapse: collapse;">
 			<tr>
 				<td>ID</td>
-				<td>NAME</td>
-				<td>EMAIL</td>
-				<td>ACTION</td>
+				<td>Name</td>
+				<td>Email</td>
+				<td>Password</td>
+				<td>Action</td>
 			</tr>
-			<tr>
-				<td>1</td>
-				<td>alamin</td>
-				<td>alamin@gmail.com</td>
-				<td>
-					<a href="edit.php?id=1">EDIT</a> |
-					<a href="delete.php?id=1">DELETE</a> 
-				</td>
-			</tr>
+			<?php 
+				$sql="select * from user";
+				$result=mysqli_query($con,$sql);
+				while($row=mysqli_fetch_assoc($result)){
+					echo "<tr>
+							<td>$row[id]</td>
+							<td>$row[username]</td>
+							<td>$row[email]</td>
+							<td>$row[password]</td>
+							<td>
+								<a href='edit.php?id=$row[id]'>EDIT</a> |
+								<a href='delete.php?id=$row[id]'>DELETE</a> 
+							</td>
+						</tr>";
+				}
+			?>
 		</table>
 	</div>
 
