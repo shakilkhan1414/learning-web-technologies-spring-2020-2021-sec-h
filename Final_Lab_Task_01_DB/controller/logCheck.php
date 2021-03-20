@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	require_once "../db/connection.php";
+	require_once('../model/userModel.php');
 
 	if(isset($_POST['submit'])){
 
@@ -10,16 +10,18 @@
 		if($username == "" || $password == ""){
 			echo "null submission...";
 		}else{
-			$sql="select * from user where username='$username' and password='$password'";
-			$result=mysqli_query($con,$sql);
 
-			if(mysqli_num_rows($result)>0){
+			$status = validateUser($username, $password);
+			if($status){
 				$_SESSION['flag'] = true;
+				$_SESSION['username'] = $username;
+
 				header('location: ../view/home.php');
-			}
-			else{
-				echo "Incorrect username or password";
+
+			}else{
+				echo "invalid user";
 			}
 		}
+
 	}
 ?>

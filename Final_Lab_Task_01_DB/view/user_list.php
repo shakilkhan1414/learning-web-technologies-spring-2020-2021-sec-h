@@ -1,6 +1,6 @@
 <?php
+	require_once('../model/userModel.php');
 	$title= "User list Page";
-	require_once "../db/connection.php";
 	include('header.php');
 ?>
 
@@ -17,27 +17,31 @@
 		<table border="1" style="border-collapse: collapse;">
 			<tr>
 				<td>ID</td>
-				<td>Name</td>
+				<td>Username</td>
 				<td>Email</td>
 				<td>Password</td>
 				<td>Action</td>
 			</tr>
 			<?php 
-				$sql="select * from user";
-				$result=mysqli_query($con,$sql);
-				while($row=mysqli_fetch_assoc($result)){
+				$users=getAllUser();
+				for($i=0;$i<sizeof($users);$i++){
+					$id=$users[$i]['id'];
+					$username=$users[$i]['username'];
+					$email=$users[$i]['email'];
+					$password=$users[$i]['password'];
 					echo "<tr>
-							<td>$row[id]</td>
-							<td>$row[username]</td>
-							<td>$row[email]</td>
-							<td>$row[password]</td>
+							<td>$id</td>
+							<td>$username</td>
+							<td>$email</td>
+							<td>$password</td>
 							<td>
-								<a href='edit.php?id=$row[id]'>EDIT</a> |
-								<a href='delete.php?id=$row[id]'>DELETE</a> 
+								<a href='edit.php?id=$id'>EDIT</a> |
+								<a href='../controller/delete.php?id=$id'>DELETE</a> 
 							</td>
 						</tr>";
 				}
 			?>
+			
 		</table>
 	</div>
 

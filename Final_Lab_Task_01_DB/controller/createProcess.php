@@ -25,7 +25,7 @@
 				$status = insertUser($user);
 
 				if($status){
-					header('location: ../view/login.html');
+					header('location: ../view/home.php');
 				}else{
 					echo "error";
 				}

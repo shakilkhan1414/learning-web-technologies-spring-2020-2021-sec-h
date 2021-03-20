@@ -2,8 +2,6 @@
 	$title= "Edit Page";
 	include('header.php');
 
-	//echo $_GET['id'];
-	//echo $_GET['email'];
 ?>
 
 
