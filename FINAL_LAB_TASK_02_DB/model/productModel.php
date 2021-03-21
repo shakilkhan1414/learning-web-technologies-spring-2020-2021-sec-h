@@ -60,4 +60,16 @@
 			return false;
 		}
 	}
+	function searchProduct($name){
+		$conn = getConnection();
+		$sql="select * from products where name like '%$name%'";
+		$result = mysqli_query($conn, $sql);
+		$products =[];
+
+		while($row = mysqli_fetch_assoc($result)){
+			array_push($products, $row); 
+		}
+
+		return $products;
+	}
 ?>

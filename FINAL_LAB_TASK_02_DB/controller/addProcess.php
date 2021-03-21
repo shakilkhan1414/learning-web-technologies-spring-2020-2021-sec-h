@@ -31,7 +31,7 @@
 				$status = insertProduct($products);
 
 				if($status){
-					header('location: ../view/home.php');
+					header('location: ../view/product_list.php');
 				}else{
 					echo "error";
 				}
