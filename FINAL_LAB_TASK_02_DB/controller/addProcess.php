@@ -19,7 +19,7 @@
 					'displayable' => 'yes'
 				];
 			}
-			
+		
 			else{
 				$products = [
 					'name' => $name,
