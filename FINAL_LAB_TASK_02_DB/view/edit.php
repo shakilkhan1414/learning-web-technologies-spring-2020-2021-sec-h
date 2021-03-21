@@ -11,7 +11,7 @@
 	</div>
 
 	<div id='nav_bar'>
-		<a href="index.html"> Back</a> 
+		<a href="product_list.php"> Back</a> 
 	</div>
 
 	<div id="main_content">

@@ -36,7 +36,7 @@
 							<td>$profit</td>
 							<td>
 								<a href='edit.php?id=$id'>EDIT</a> |
-								<a href='../controller/delete.php?id=$id'>DELETE</a>
+								<a href='delete.php?id=$id'>DELETE</a>
 							</td>
 						</tr>";
 					}
