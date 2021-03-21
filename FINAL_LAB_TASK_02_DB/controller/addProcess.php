@@ -2,37 +2,39 @@
 	session_start();
 	require_once('../model/productModel.php');
 
-	if(isset($_POST['signup'])){
+	if(isset($_POST['add'])){
 
-		$username = $_POST['username'];
-		$password = $_POST['password'];
-		$repass = $_POST['repass'];
-		$email = $_POST['email'];
+		$name = $_POST['name'];
+		$buying_price = $_POST['buying_price'];
+		$selling_price = $_POST['selling_price'];
 
-		if($username == "" || $email == "" || $password == "" || $repass == ""){
+		if($name == "" || $buying_price == "" || $selling_price == ""){
 			echo "null submission...";
 		}else{
-
-			if($password == $repass){
-
-				$user = [
-							'username' => $username,
-							'password' => $password,
-							'email' => $email,
-							'type' => 'user'
-						];
-
-				$status = insertUser($user);
+			if(isset($_POST['display'])){
+				$products = [
+					'name' => $name,
+					'buying_price' => $buying_price,
+					'selling_price' => $selling_price,
+					'displayable' => 'yes'
+				];
+			}
+			
+			else{
+				$products = [
+					'name' => $name,
+					'buying_price' => $buying_price,
+					'selling_price' => $selling_price,
+					'displayable' => 'no'
+				];
+			}
+				$status = insertProduct($products);
 
 				if($status){
 					header('location: ../view/home.php');
 				}else{
 					echo "error";
 				}
-
-			}else{
-				echo "password & confirm password mismatch..";
-			}
 		}
 	}
 ?>

@@ -28,8 +28,10 @@
 					$buying_price=$products[$i]['buying_price'];
 					$selling_price=$products[$i]['selling_price'];
 					$profit=$selling_price - $buying_price;
-					
-					echo "<tr>
+					$displayable=$products[$i]['displayable'];
+
+					if($displayable=="yes"){
+						echo "<tr>
 							<td>$name</td>
 							<td>$profit</td>
 							<td>
@@ -37,6 +39,7 @@
 								<a href='../controller/delete.php?id=$id'>DELETE</a>
 							</td>
 						</tr>";
+					}
 				}
 			?>
 		</table>
