@@ -19,5 +19,8 @@
                 header('location: ../view/user_home.php');
             }
         }
+        else{
+            echo "Incorrect id or password!";
+        }
     }
 ?>

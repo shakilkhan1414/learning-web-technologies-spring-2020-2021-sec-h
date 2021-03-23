@@ -83,5 +83,13 @@
 		$data=$row['user_type'];
 		return $data;
 	}
+	function changePassword($id){
+		$conn = getConnection();
+		$sql = "select user_type from user where id={$id}";
+		$result=mysqli_query($conn, $sql);
+		$row=mysqli_fetch_assoc($result);
+		$data=$row['user_type'];
+		return $data;
+	}
 
 ?>
