@@ -75,21 +75,14 @@
 			return false;
 		}
 	}
-	function getUserType($id){
+	function changePassword($id,$password){
 		$conn = getConnection();
-		$sql = "select user_type from user where id={$id}";
-		$result=mysqli_query($conn, $sql);
-		$row=mysqli_fetch_assoc($result);
-		$data=$row['user_type'];
-		return $data;
-	}
-	function changePassword($id){
-		$conn = getConnection();
-		$sql = "select user_type from user where id={$id}";
-		$result=mysqli_query($conn, $sql);
-		$row=mysqli_fetch_assoc($result);
-		$data=$row['user_type'];
-		return $data;
+		$sql = "update user set password='{$password}' where id='{$id}'";
+		if(mysqli_query($conn, $sql)){
+			return true;
+		}else{
+			return false;
+		}
 	}
 
 ?>

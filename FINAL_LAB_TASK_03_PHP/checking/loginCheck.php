@@ -7,13 +7,13 @@
         $password=$_REQUEST['password'];
 
         if(validateUser($userid,$password)){
-            $user_type=getUserType($userid);
-            if($user_type=="admin"){
+            $user=getUserById($userid);
+            if($user['user_type']=="admin"){
                 $_SESSION['flag']= true;
                 $_SESSION['id']=$userid;
                 header('location: ../view/admin_home.php');
             }
-            else if($user_type=="user"){
+            else if($user['user_type']=="user"){
                 $_SESSION['flag']= true;
                 $_SESSION['id']=$userid;
                 header('location: ../view/user_home.php');

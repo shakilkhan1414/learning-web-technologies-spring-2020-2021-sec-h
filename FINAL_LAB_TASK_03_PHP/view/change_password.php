@@ -1,13 +1,26 @@
 <?php 
 session_start();
+require_once('../model/userModel.php');
 
 	if(isset($_POST['submit'])){
         $cpass=$_REQUEST['cpass'];
         $npass=$_REQUEST['npass'];
 		$rpass=$_REQUEST['rpass'];
-
-		
+		$user=getUserById($_SESSION['id']);
+		if($user['password']==$cpass){
+			if($npass==$rpass){
+				if(changePassword($_SESSION['id'],$npass)){
+					header("location: ../checking/homeCheck.php");
 				}
+			}
+			else{
+				echo "Password should match!";
+			}
+		}
+		else{
+			echo "Incorrect current password!";
+		}
+	}
 
 ?>
 
