@@ -39,7 +39,7 @@ require_once('../model/userModel.php');
 						<input type="password" name="rpass"/>								
 						<hr />
 						<input type="submit" value="Change" name="submit" />     
-						<a href="users_home.php">Home</a>						
+						<a href="../checking/homeCheck.php">Home</a>						
 					</fieldset>
 				</td>
 			</tr>

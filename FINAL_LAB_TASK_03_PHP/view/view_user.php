@@ -1,11 +1,6 @@
 <?php 
-    session_start();
-    $myfile = fopen('../json/user_list.json', 'r');
-			$data = fread($myfile, filesize('../json/user_list.json'));
-
-			$user = json_decode($data, true);
-			
-
+    require_once('../model/userModel.php');
+    $user=getAllUser();
 ?>
 
 <center>
@@ -14,6 +9,7 @@
         <tr>
             <td>ID</td>
             <td>Name</td>
+            <td>Email</td>
             <td>User_type</td>
         </tr>
 		
@@ -22,10 +18,12 @@
 
 				$id=$user[$i]['id'];
 				$name=$user[$i]['name'];
+                $email=$user[$i]['email'];
 				$user_type=$user[$i]['user_type'];
                 echo "<tr>
                     <td>$id</td>
                     <td>$name</td>
+                    <td>$email</td>
                     <td>$user_type</td>
                 </tr>";
             }
@@ -33,7 +31,7 @@
         
         ?>
 			<td colspan="3" align="right">
-				<a href="home.html">Go Home</a>
+				<a href="../checking/homeCheck.php">Go Home</a>
 			</td>
 		</tr>
 	</table>			
