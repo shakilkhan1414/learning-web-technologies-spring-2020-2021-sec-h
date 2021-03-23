@@ -4,5 +4,5 @@
 	<br/>
 	<a href="change_password.php">Change Password</a>
 	<br/>
-	<a href="logout.php">Logout</a>
+	<a href="../checking/logout.php">Logout</a>
 </center>

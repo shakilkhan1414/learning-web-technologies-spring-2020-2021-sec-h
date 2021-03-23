@@ -6,5 +6,5 @@
 	<br/>
 	<a href="view_user.php">View Users</a>
 	<br/>
-	<a href="logout.php">Logout</a>
+	<a href="../checking/logout.php">Logout</a>
 </center>

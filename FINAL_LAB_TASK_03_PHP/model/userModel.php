@@ -6,7 +6,7 @@
 
 		$conn = getConnection();
 
-		$sql = "select * from user where username='{$id}' and password='{$password}'";
+		$sql = "select * from user where id='{$id}' and password='{$password}'";
 		$result = mysqli_query($conn, $sql);
 		$row = mysqli_fetch_assoc($result);
 
@@ -83,5 +83,5 @@
 		$data=$row['user_type'];
 		return $data;
 	}
-	
+
 ?>
